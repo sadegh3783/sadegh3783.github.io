@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohammadsadegh Mokhtari — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f7f6f3;
+      --surface: #ffffff;
+      --surface-2: #f1efe9;
+      --ink: #161616;
+      --text: #2d2d2d;
+      --muted: #6f6a62;
+      --soft: #a59d92;
+      --line: rgba(22, 22, 22, 0.08);
+      --line-strong: rgba(22, 22, 22, 0.14);
+      --accent: #8d6b3f;
+      --accent-dark: #6f532f;
+      --shadow: 0 10px 30px rgba(15, 15, 15, 0.06);
+
+      --sans: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --serif: 'Baskervville', Georgia, serif;
+
+      --container: 1240px;
+      --radius: 20px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #fbfaf8 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(247, 246, 243, 0.82);
+      border-bottom: 1px solid rgba(22, 22, 22, 0.05);
+    }
+
+    .nav-inner {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .hero {
+      padding: 92px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      color: var(--ink);
+      font-size: clamp(52px, 8vw, 86px);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+      max-width: 760px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    .hero-copy {
+      margin-top: 28px;
+      max-width: 650px;
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+
+    .btn {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: #252525;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line-strong);
+      color: var(--ink);
+      background: rgba(255,255,255,0.65);
+    }
+
+    .btn-secondary:hover {
+      background: #fff;
+      border-color: rgba(22,22,22,0.2);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f3f1eb 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(141,107,63,0.18) 0%, rgba(141,107,63,0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .hero-card-initials {
+      font-family: var(--serif);
+      font-size: 112px;
+      line-height: 0.9;
+      color: rgba(22,22,22,0.08);
+      margin-bottom: 20px;
+    }
+
+    .hero-meta {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-meta-item {
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--soft);
+      margin-bottom: 6px;
+    }
+
+    .hero-meta-item span {
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .divider {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+      height: 1px;
+      background: var(--line);
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-head {
+      margin-bottom: 42px;
+      max-width: 760px;
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-head h2 {
+      font-family: var(--serif);
+      color: var(--ink);
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+
+    .section-head h2 em {
+      color: var(--accent-dark);
+      font-style: italic;
+    }
+
+    .section-intro {
+      margin-top: 18px;
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 17px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card p + p {
+      margin-top: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .tag {
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.8);
+      color: var(--ink);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    #experience {
+      background: #171717;
+      color: rgba(255,255,255,0.86);
+    }
+
+    #experience .section-head h2,
+    #experience .exp-title {
+      color: #fff;
+    }
+
+    #experience .section-intro {
+      color: rgba(255,255,255,0.66);
+    }
+
+    #experience .section-kicker {
+      color: #c6a26c;
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .exp-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 26px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .exp-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(198,162,108,0.35);
+    }
+
+    .exp-date {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #c6a26c;
+      margin-bottom: 12px;
+    }
+
+    .exp-title {
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+
+    .exp-org {
+      font-size: 14px;
+      color: rgba(255,255,255,0.62);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .exp-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .pub-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      color: var(--soft);
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .pub-venue {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .pub-authors {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact-panel,
+    .contact-form {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-links {
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-links a,
+    .contact-links span {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .contact-links a:hover {
+      color: var(--ink);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(141,107,63,0.45);
+      box-shadow: 0 0 0 4px rgba(141,107,63,0.08);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #aaa39a;
+    }
+
+    .btn-send {
+      margin-top: 4px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      min-height: 50px;
+      padding: 0 24px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      justify-self: start;
+    }
+
+    .btn-send:hover {
+      background: #262626;
+      transform: translateY(-1px);
+    }
+
+    footer {
+      padding: 28px 0 42px;
+    }
+
+    .footer-inner {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .exp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-item {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-num {
+        font-size: 28px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container,
+      .nav-inner,
+      .footer-inner,
+      .divider {
+        width: min(var(--container), calc(100% - 28px));
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 14vw, 62px);
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn,
+      .btn-secondary {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Mohammadsadegh Mokhtari</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">PhD Researcher · IDLab, imec · University of Antwerp</p>
+          <h1>
+            Mohammad-<br>sadegh <em>Mokhtari</em>
+          </h1>
+          <p class="hero-copy">
+            Power systems engineer turned AI researcher, working at the intersection of intelligent energy systems, swarm robotics, and machine learning to design resilient, efficient, and sustainable technologies.
+          </p>
+          <div class="hero-actions">
+            <a href="#about" class="btn">Explore my work</a>
+            <a href="#contact" class="btn-secondary">Get in touch</a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal">
+          <div class="hero-card-label">Profile</div>
+          <div class="hero-card-initials">MM</div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <strong>Focus</strong>
+              <span>AI · Energy Systems · Robotics</span>
+            </div>
+            <div class="hero-meta-item">
+              <strong>Role</strong>
+              <span>Researcher & PhD Candidate</span>
+            </div>
+            <div class="hero-meta-item">
+              <strong>Location</strong>
+              <span>Antwerp, Belgium</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">About</p>
+          <h2>Engineering the <em>intelligent</em> grid</h2>
+          <p class="section-intro">
+            Combining industrial energy expertise with academic research in AI, distributed systems, and robotic coordination.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <p>
+              I am a PhD researcher at IDLab, imec and the University of Antwerp, where I work on problems spanning energy optimisation, distributed intelligence, collaborative robotics, and machine learning.
+            </p>
+            <p>
+              My background bridges real-world infrastructure and advanced research — from operating power plants and substations in Iran to publishing in leading engineering and robotics venues.
+            </p>
+            <div class="skills-tags">
+              <span class="tag">AI / ML / RL</span>
+              <span class="tag">Python</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">ROS / Gazebo</span>
+              <span class="tag">Swarm Intelligence</span>
+              <span class="tag">Power Systems</span>
+              <span class="tag">DIgSILENT</span>
+              <span class="tag">PSCAD</span>
+              <span class="tag">Smart Grids</span>
+              <span class="tag">Verilog</span>
+              <span class="tag">ISO 50001</span>
+              <span class="tag">Optimization</span>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="stats">
+              <div class="stat">
+                <strong>10+</strong>
+                <span>Years of experience</span>
+              </div>
+              <div class="stat">
+                <strong>8+</strong>
+                <span>Publications</span>
+              </div>
+              <div class="stat">
+                <strong>20%</strong>
+                <span>Energy savings achieved</span>
+              </div>
+              <div class="stat">
+                <strong>1</strong>
+                <span>Best paper award</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">Experience</p>
+          <h2>A decade of <em>impactful</em> work</h2>
+          <p class="section-intro">
+            From regional power systems and energy consulting to advanced AI research in multi-robot and distributed environments.
+          </p>
+        </div>
+
+        <div class="exp-grid">
+          <div class="exp-item reveal">
+            <div class="exp-date">Jan 2023 – Present</div>
+            <div class="exp-title">Researcher</div>
+            <div class="exp-org">IDLab, imec · Belgium</div>
+            <div class="exp-desc">Research on swarm management, distributed coordination, and AI-driven multi-robot systems.</div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-date">Jan 2023 – Present</div>
+            <div class="exp-title">PhD Student</div>
+            <div class="exp-org">University of Antwerp · Belgium</div>
+            <div class="exp-desc">Focused on energy modelling, collaborative robotics, swarm intelligence, reinforcement learning, and optimisation.</div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-date">Jan 2020 – Jan 2023</div>
+            <div class="exp-title">Power System Engineer</div>
+            <div class="exp-org">Fars Regional Electricity Company · Iran</div>
+            <div class="exp-desc">Worked on maintenance, scheduling, protection systems, and dispatching across regional power infrastructure.</div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-date">Feb 2019 – Jan 2020</div>
+            <div class="exp-title">FPGA & MATLAB Developer</div>
+            <div class="exp-org">Freelance · Iran</div>
+            <div class="exp-desc">Designed and simulated digital systems using Verilog, Simulink, Altium Designer, and Proteus.</div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-date">Apr 2018 – Feb 2019</div>
+            <div class="exp-title">Researcher</div>
+            <div class="exp-org">Malek Ashtar University · Tehran, Iran</div>
+            <div class="exp-desc">Worked on network-based ARM microprocessor design using Python, Altium Designer, and µVision.</div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-date">May 2017 – Feb 2018</div>
+            <div class="exp-title">Energy Consultant</div>
+            <div class="exp-org">Fars Regional Electricity Company · Iran</div>
+            <div class="exp-desc">Conducted energy audits and optimisation projects, achieving measurable reductions in energy consumption.</div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-date">Jul 2016 – May 2017</div>
+            <div class="exp-title">Energy Management Consultant</div>
+            <div class="exp-org">Sutech.P.S.L · Iran</div>
+            <div class="exp-desc">Developed ISO 50001-based operational plans for industrial energy optimisation.</div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-date">Sep 2014 – Feb 2017</div>
+            <div class="exp-title">Master’s Student</div>
+            <div class="exp-org">Shiraz University of Technology · Iran</div>
+            <div class="exp-desc">Specialised in power system stability and hybrid microgrids using MATLAB, Simulink, DIgSILENT, and PSCAD.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">Research</p>
+          <h2>Selected <em>publications</em></h2>
+          <p class="section-intro">
+            A selection of research contributions in robotics, energy systems, optimisation, and intelligent infrastructures.
+          </p>
+        </div>
+
+        <div class="pub-list">
+          <div class="pub-item reveal">
+            <div class="pub-num">01</div>
+            <div>
+              <div class="pub-venue">IOTSMS 2025</div>
+              <div class="pub-title">Energy Saving Strategy for Electric Vehicles During Car-Following Scenarios</div>
+              <div class="pub-authors">M. Mokhtari, M. Pop · December 2025</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-num">02</div>
+            <div>
+              <div class="pub-venue">Computers, Communications & IT Applications 2025</div>
+              <div class="pub-title">Hybrid Multiverse-based Parallel Computing Framework for Task Scheduling in Swarm Robotics</div>
+              <div class="pub-authors">M. Mokhtari, D. Scalais, J. Famaey · December 2025</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-num">03</div>
+            <div>
+              <div class="pub-venue">IEEE Robotics and Autonomous Systems · November 2025</div>
+              <div class="pub-title">Energy Harvesting Aware Path Planning for Ambiently-Powered Multi-Robot Systems</div>
+              <div class="pub-authors">M. Mokhtari, B. Vanderborght, J. Famaey</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-num">04</div>
+            <div>
+              <div class="pub-venue">Aerospace, MDPI 2025</div>
+              <div class="pub-title">Edge-Enabled UAV Communication Framework for Next-Generation Aerospace Networks</div>
+              <div class="pub-authors">Janssen, T., Singh, R.K., … Mokhtari, M., et al.</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-num">05</div>
+            <div>
+              <div class="pub-venue">IEEE HONET 2024 · Best Paper Award</div>
+              <div class="pub-title">Low-Power Energy Management Module for Ambiently Powered Robotic Swarms</div>
+              <div class="pub-authors">M. Mokhtari, P. Haji Ali Mohamadi, et al. · December 2024</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-num">06</div>
+            <div>
+              <div class="pub-venue">Robotics and Autonomous Systems · March 2024</div>
+              <div class="pub-title">Energy-Aware Multi-Robot Task Scheduling Using Meta-Heuristic Optimization for Ambiently-Powered Robot Swarms</div>
+              <div class="pub-authors">M. Mokhtari, P. Haji Ali Mohamadi, M. Aernouts, et al.</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-num">07</div>
+            <div>
+              <div class="pub-venue">Mathematics, MDPI · January 2023</div>
+              <div class="pub-title">Optimal Sizing of a Photovoltaic Pumping System with Water Storage Using Enhanced Artificial Rabbits Optimization</div>
+              <div class="pub-authors">A. Mazloumi, A. Poolad, M.S. Mokhtari, et al.</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-num">08</div>
+            <div>
+              <div class="pub-venue">Electric Power Systems Research · April 2021</div>
+              <div class="pub-title">Optimal Coordination of TCSC and Transmission Expansion Planning: A Distributionally Robust Optimization Approach</div>
+              <div class="pub-authors">M.S. Mokhtari, M. Gitizadeh, M. Lehtonen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">Contact</p>
+          <h2>Let’s connect <em>and collaborate</em></h2>
+          <p class="section-intro">
+            Open to research collaborations, consulting opportunities, and interdisciplinary projects in AI, energy, and robotics.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-panel reveal">
+            <div class="contact-links">
+              <a href="mailto:mohammadsadegh.mokhtari@uantwerpen.be">mohammadsadegh.mokhtari@uantwerpen.be</a>
+              <a href="tel:+3232651419">+32 32651419</a>
+              <a href="https://www.linkedin.com/in/mohmmadsadegh-mokhtari-345a78a8/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mokhtari</a>
+              <span>Antwerp, Belgium</span>
+            </div>
+          </div>
+
+          <form class="contact-form reveal">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name">
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="your@email.com">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" placeholder="Research collaboration, consulting, speaking...">
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" rows="6" placeholder="Tell me about your project, research, or idea..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-send">essage</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Mohammadsadegh Mokhtari · Antwerp, Belgium</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/mohmmadsadegh-mokhtari-345a78a8/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:mohammadsadegh.mokhtari@uantwerpen.be">Email</a>
+        <a href="https://scholar.google.com/citations?user=1B4guxkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Publications</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), index * 70);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+
+</body>
+</html>
